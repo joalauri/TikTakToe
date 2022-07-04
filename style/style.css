@@ -1,0 +1,189 @@
+* {
+  margin: 5px;
+  padding: 5px;
+}
+body {
+  background-color: rgb(142, 142, 142);
+}
+/* de partidas ganadas */
+.allGameContainer {
+  box-shadow: 1px 1px 5px rgb(0, 0, 0);
+  display: flex;
+  flex-flow: column wrap;
+  padding: 20px;
+  background: rgb(255, 217, 217);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 217, 217, 1) 0%,
+    rgba(255, 252, 203, 1) 48%,
+    rgba(201, 255, 222, 1) 100%
+  );
+}
+.panelControl {
+  display: flex;
+  flex-flow: row wrap;
+  box-shadow: 1px 1px 5px black;
+  justify-content: space-around;
+}
+z .scoreAndPlayer {
+  border: 1px solid black;
+}
+.gamesPlayed {
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  width: 300px;
+  border-radius: 7px;
+}
+.scoreWins {
+  box-shadow: 1px 1px 5px black;
+  border-radius: 7px;
+}
+.firstPlayerScore {
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  border-radius: 7px;
+}
+.secondPlayerScore {
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  border-radius: 7px;
+}
+
+/* jugadores y botones */
+.gameContainer {
+  display: flex;
+  border-radius: 7px;
+}
+.gamePlayer1 {
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  border-radius: 7px;
+}
+.gamePlayer2 {
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  border-radius: 7px;
+}
+.gameButtons {
+  display: flex;
+  flex-flow: column wrap;
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
+}
+.buttonRefresh {
+  background-color: rgb(169, 172, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 7px;
+}
+.buttonRest {
+  background-color: rgb(169, 172, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 7px;
+}
+.puntajeJugadores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: auto;
+  padding-top: 10px;
+  color: rgb(255, 0, 0);
+  font-size: xx-large;
+}
+/* juego en si */
+
+.tikTakToe {
+  box-shadow: 1px 1px 5px black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* cuadricula de juego */
+.parentTikTakToe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 600px;
+  height: 600px;
+}
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div3 {
+  grid-area: 1 / 3 / 2 / 4;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div4 {
+  grid-area: 2 / 1 / 3 / 2;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div5 {
+  grid-area: 2 / 2 / 3 / 3;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div6 {
+  grid-area: 2 / 3 / 3 / 4;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div7 {
+  grid-area: 3 / 1 / 4 / 2;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div8 {
+  grid-area: 3 / 2 / 4 / 3;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div9 {
+  grid-area: 3 / 3 / 4 / 4;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imagenTikTakToe {
+  max-width: 100px;
+}

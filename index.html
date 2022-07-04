@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="containerScore" class="allGameContainer">
+        <!-- div de partidas ganadas-->
+        <div class="panelControl">
+          <div class="scoreAndplayer">
+            <!-- partidas jugadas -->
+            <div class="gamesPlayed">
+              <h3>JUGADORES:</h3>
+            </div>
+            <!-- victorias -->
+            <div class="scoreWins">
+              <!-- primer jugador -->
+              <div class="firstPlayerScore">
+                <h4>Jugador1</h4>
+              </div>
+              <!-- segundo jugador -->
+              <div class="secondPlayerScore">
+                <h4>jugador 2</h4>
+              </div>
+            </div>
+          </div>
+          <!-- div de jugadores y botones -->
+          <div class="gameContainer">
+            <!-- jugador 1 -->
+            <div class="gamePlayer1">
+              <h4>JUGADOR 1</h4>
+              <h2 id="tablaPuntaje1" class="puntajeJugadores">0</h2>
+            </div>
+            <!-- jugador 2 -->
+            <div class="gamePlayer2">
+              <h4>JUGADOR 2</h4>
+              <h2 id="tablaPuntaje2" class="puntajeJugadores">0</h2>
+            </div>
+            <!-- botonera -->
+            <div class="gameButtons">
+              <!-- boton de reset game -->
+              <div class="gameButtonReset">
+                <button id="buttonReset" type="reset" class="buttonRefresh">
+                  REFRESH
+                </button>
+              </div>
+              <!-- boton de nueva partida -->
+              <div class="gameButtonNew">
+                <button id="buttonRestartGame" type="reset" class="buttonRest">
+                  RESET GAME
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- juego en si -->
+        <div id="conteinerTikTak" class="tikTakToe">
+          <div class="parentTikTakToe">
+            <div id="divT1" class="div1" onclick1="agregarXOO()"></div>
+            <div id="divT2" class="div2" onclick2="agregarXOO()"></div>
+            <div id="divT3" class="div3" onclick3="agregarXOO()"></div>
+            <div id="divT4" class="div4" onclick4="agregarXOO()"></div>
+            <div id="divT5" class="div5" onclick5="agregarXOO()"></div>
+            <div id="divT6" class="div6" onclick6="agregarXOO()"></div>
+            <div id="divT7" class="div7" onclick7="agregarXOO()"></div>
+            <div id="divT8" class="div8" onclick8="agregarXOO()"></div>
+            <div id="divT9" class="div9" onclick9="agregarXOO()"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./javascrip/mainJavascrip.js"></script>
+  </body>
+</html>
