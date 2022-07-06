@@ -84,8 +84,15 @@ z .scoreAndPlayer {
   margin: auto;
   padding: auto;
   padding-top: 10px;
-  color: rgb(255, 0, 0);
+  color: rgb(0, 0, 0);
   font-size: xx-large;
+}
+.active1{
+  background-color: rgb(255, 84, 84);
+  color: black;
+}
+.active2{
+  background-color: rgb(96, 255, 85);
 }
 /* juego en si */
 

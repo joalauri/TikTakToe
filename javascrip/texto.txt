@@ -58,42 +58,21 @@ let divContenidos = [
   divContenido9,
 ];
 //
-let localStorageJugador1JSON = []
-let localStorageJugador2JSON = []
-let localStorageBackJugador1 = []
-let localStorageBackJugador2 = []
 let punajeJugador1 = [];
 let punajeJugador2 = [];
+//variable contador de jugadas
 let contadorJugadas = 0;
-let jugador1Storage = "";
-let jugador2Storage = "";
-//if para resolver si hay información guradada en local storage, asi no produce error
-//por null.
-if ("jugador1" in localStorage) {
-  jugador1Storage = localStorage.getItem('jugador1')
-  localStorageBackJugador1 = JSON.parse(jugador1Storage)
-  console.log("hay registros de jugador 1");
-} else {
-  console.log("no hay registro de jugador1");
-}
-if ("jugador2" in localStorage) {
-  jugador2Storage = localStorage.getItem('jugador2')
- localStorageBackJugador2 = JSON.parse(jugador2Storage)
-  console.log("hay registros de jugador 2");
-} else {
-  console.log("no hay registro de jugador2");
-}
-//almacenamiento de array para jugadores, que será para recuperar la información de la partida.
-let jugador1StorageArray = localStorageBackJugador1;
-let jugador2StorageArray = localStorageBackJugador2;
-//contenedores generales:
+// Array objeto jugador
+let jugador1Storage = localStorage.getItem('jugador1')
+let jugador2Storage = localStorage.getItem('jugador2')
+const jugador1StorageArray = jugador1Storage.split(',')
+const jugador2StorageArray = jugador2Storage.split(',')
+//contenedores:
 const tikTakToe = document.getElementById("conteinerTikTak");
 const containerScore = document.getElementById("containerScore");
 const buttonReset = document.getElementById("buttonReset");
 const buttonRestartGame = document.getElementById("buttonRestartGame");
-const reanudarPartidaAnterior = document.getElementById(
-  "reanudarPartidaAnterior"
-);
+const reanudarPartidaAnterior= document.getElementById("reanudarPartidaAnterior");
 const jugador1Contador = document.getElementById("tablaPuntaje1");
 const jugador2Contador = document.getElementById("tablaPuntaje2");
 const boxJugador1 = document.getElementById("firstPlayerBox");
@@ -122,32 +101,19 @@ function agregarXOO() {
     });
   });
 }
-restartGame();
-function restartGame() {
-  if (localStorageBackJugador1.length == 0 && localStorageBackJugador2.length == 0) {
-    console.log("no hay registro de partidas guardadas");
-  } else if (jugador1Storage.length >= 1 || jugador2Storage.length >= 1) {
-    //lo unico que me queda hacer acá es solucionar el problema de cuando el click se hace y hay 1 sola partida ganada. Ahi carga una pareja de 1 porque toma " " como array.
-    reanudarPartidaAnterior.addEventListener(`click`, () => {
-      if (jugador1StorageArray.length >= 1) {
-        jugador1StorageArray.forEach((element) => {
-          punajeJugador1.push(element);
-        });
-      } else {
-        jugador1StorageArray = [];
-      }
-      if (jugador2StorageArray.length >= 1) {
-        jugador2StorageArray.forEach((element) => {
-          punajeJugador2.push(element);
-        });
-      } else {
-        jugador2StorageArray = [];
-      }
-      sumarAlContador();
+restartGame()
+function restartGame(){
+  reanudarPartidaAnterior.addEventListener(`click`, () => {
+
+    jugador1StorageArray.forEach(element => {
+      punajeJugador1.push(element)
     });
-  } else {
-    alert("No se puede acceder a una partida anterior");
-  }
+    jugador2StorageArray.forEach(element => {
+      punajeJugador2.push(element)
+    });
+  
+   sumarAlContador()
+  });
 }
 
 //recibe como parámetro la información proveniente de la funcion invocadora del
@@ -246,7 +212,7 @@ function resetAll() {
       element.pop();
     });
   }
-  //se encargará de eliminar uno por  uno los elementos de puntaje.
+
   while (punajeJugador1.length != 0) {
     punajeJugador1.pop();
   }
@@ -272,54 +238,54 @@ function distribuirPuntos(divXO) {
   ) {
     switch (divXO) {
       case divContenido1:
-        verticalLeftX.push(divXO);
-        horizTopX.push(divXO);
-        firstDiagonalX.push(divXO);
+        verticalLeftX.push("1");
+        horizTopX.push("1");
+        firstDiagonalX.push("1");
         comprararPosicionesX();
         break;
       case divContenido2:
-        verticalMiddleX.push(divXO);
-        horizTopX.push(divXO);
+        verticalMiddleX.push("1");
+        horizTopX.push("1");
         comprararPosicionesX();
         break;
       case divContenido3:
-        horizTopX.push(divXO);
-        verticalRightX.push(divXO);
-        secondDiagonalX.push(divXO);
+        horizTopX.push("1");
+        verticalRightX.push("1");
+        secondDiagonalX.push("1");
         comprararPosicionesX();
         break;
       case divContenido4:
-        verticalLeftX.push(divXO);
-        horizMiddleX.push(divXO);
+        verticalLeftX.push("1");
+        horizMiddleX.push("1");
         comprararPosicionesX();
         break;
       case divContenido5:
-        horizMiddleX.push(divXO);
-        verticalMiddleX.push(divXO);
-        firstDiagonalX.push(divXO);
-        secondDiagonalX.push(divXO);
+        horizMiddleX.push("1");
+        verticalMiddleX.push("1");
+        firstDiagonalX.push("1");
+        secondDiagonalX.push("1");
         comprararPosicionesX();
         break;
       case divContenido6:
-        verticalRightX.push(divXO);
-        horizMiddleX.push(divXO);
+        verticalRightX.push("1");
+        horizMiddleX.push("1");
         comprararPosicionesX();
         break;
       case divContenido7:
-        verticalLeftX.push(divXO);
-        horizBottomX.push(divXO);
-        secondDiagonalX.push(divXO);
+        verticalLeftX.push("1");
+        horizBottomX.push("1");
+        secondDiagonalX.push("1");
         comprararPosicionesX();
         break;
       case divContenido8:
-        horizBottomX.push(divXO);
-        verticalMiddleX.push(divXO);
+        horizBottomX.push("1");
+        verticalMiddleX.push("1");
         comprararPosicionesX();
         break;
       case divContenido9:
-        verticalRightX.push(divXO);
-        horizBottomX.push(divXO);
-        firstDiagonalX.push(divXO);
+        verticalRightX.push("1");
+        horizBottomX.push("1");
+        firstDiagonalX.push("1");
         comprararPosicionesX();
         break;
     }
@@ -332,54 +298,54 @@ function distribuirPuntos(divXO) {
   ) {
     switch (divXO) {
       case divContenido1:
-        verticalLeftO.push(divXO);
-        horizTopO.push(divXO);
-        firstDiagonalO.push(divXO);
+        verticalLeftO.push("1");
+        horizTopO.push("1");
+        firstDiagonalO.push("1");
         comprararPosicionesO();
         break;
       case divContenido2:
-        verticalMiddleO.push(divXO);
-        horizTopO.push(divXO);
+        verticalMiddleO.push("1");
+        horizTopO.push("1");
         comprararPosicionesO();
         break;
       case divContenido3:
-        horizTopO.push(divXO);
-        verticalRightO.push(divXO);
-        secondDiagonalO.push(divXO);
+        horizTopO.push("1");
+        verticalRightO.push("1");
+        secondDiagonalO.push("1");
         comprararPosicionesO();
         break;
       case divContenido4:
-        verticalLeftO.push(divXO);
-        horizMiddleO.push(divXO);
+        verticalLeftO.push("1");
+        horizMiddleO.push("1");
         comprararPosicionesO();
         break;
       case divContenido5:
-        horizMiddleO.push(divXO);
-        verticalMiddleO.push(divXO);
-        firstDiagonalO.push(divXO);
-        secondDiagonalO.push(divXO);
+        horizMiddleO.push("1");
+        verticalMiddleO.push("1");
+        firstDiagonalO.push("1");
+        secondDiagonalO.push("1");
         comprararPosicionesO();
         break;
       case divContenido6:
-        verticalRightO.push(divXO);
-        horizMiddleO.push(divXO);
+        verticalRightO.push("1");
+        horizMiddleO.push("1");
         comprararPosicionesO();
         break;
       case divContenido7:
-        verticalLeftO.push(divXO);
-        horizBottomO.push(divXO);
-        secondDiagonalO.push(divXO);
+        verticalLeftO.push("1");
+        horizBottomO.push("1");
+        secondDiagonalO.push("1");
         comprararPosicionesO();
         break;
       case divContenido8:
-        horizBottomO.push(divXO);
-        verticalMiddleO.push(divXO);
+        horizBottomO.push("1");
+        verticalMiddleO.push("1");
         comprararPosicionesO();
         break;
       case divContenido9:
-        verticalRightO.push(divXO);
-        horizBottomO.push(divXO);
-        firstDiagonalO.push(divXO);
+        verticalRightO.push("1");
+        horizBottomO.push("1");
+        firstDiagonalO.push("1");
         comprararPosicionesO();
         break;
     }
@@ -405,12 +371,8 @@ function comprararPosicionesX() {
     if (element.length == 3) {
       alert("player 1 win");
       punajeJugador1.push("1");
-      localStorageJugador1JSON  = JSON.stringify(punajeJugador1)
-      localStorage.setItem("jugador1", localStorageJugador1JSON);
-    //   element.forEach(divID => {
-    //     console.log(divID)
-    //  });
-     sumarAlContador();
+      localStorage.setItem("jugador1", punajeJugador1);
+      sumarAlContador();
       resetTablero();
     }
   });
@@ -421,12 +383,8 @@ function comprararPosicionesO() {
     if (element.length == 3) {
       alert("player 2 win");
       punajeJugador2.push("1");
-      localStorageJugador2JSON  = JSON.stringify(punajeJugador2)
-      localStorage.setItem("jugador2", localStorageJugador2JSON);
-    //  element.forEach(divID => {
-    //     console.log(divID)
-    //  });
-     sumarAlContador();
+      localStorage.setItem("jugador2", punajeJugador2);
+      sumarAlContador();
       resetTablero();
     }
   });
@@ -439,3 +397,12 @@ function sumarAlContador() {
   jugador1Contador.innerText = punajeJugador1.length;
   jugador2Contador.innerText = punajeJugador2.length;
 }
+
+/*
+for (i = 0; i<localStorage.lenght;i++){
+}
+*/
+
+//añadir un color para el turno de cada jugador
+//añadir los localStorage
+//añadir un cambiador de turno, para que se alternen jugador 1 y 2

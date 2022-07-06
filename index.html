@@ -20,11 +20,11 @@
             <!-- victorias -->
             <div class="scoreWins">
               <!-- primer jugador -->
-              <div class="firstPlayerScore">
+              <div class="firstPlayerScore" id="primerJugadorName">
                 <h4>Jugador1</h4>
               </div>
               <!-- segundo jugador -->
-              <div class="secondPlayerScore">
+              <div class="secondPlayerScore" id="segundoJugadorName">
                 <h4>jugador 2</h4>
               </div>
             </div>
@@ -32,12 +32,12 @@
           <!-- div de jugadores y botones -->
           <div class="gameContainer">
             <!-- jugador 1 -->
-            <div class="gamePlayer1">
+            <div class="gamePlayer1"  id="firstPlayerBox">
               <h4>JUGADOR 1</h4>
               <h2 id="tablaPuntaje1" class="puntajeJugadores">0</h2>
             </div>
             <!-- jugador 2 -->
-            <div class="gamePlayer2">
+            <div class="gamePlayer2" id="secondPlayerBox">
               <h4>JUGADOR 2</h4>
               <h2 id="tablaPuntaje2" class="puntajeJugadores">0</h2>
             </div>
@@ -46,7 +46,7 @@
               <!-- boton de reset game -->
               <div class="gameButtonReset">
                 <button id="buttonReset" type="reset" class="buttonRefresh">
-                  REFRESH
+                  Limpiar tablero
                 </button>
               </div>
               <!-- boton de nueva partida -->
@@ -54,6 +54,9 @@
                 <button id="buttonRestartGame" type="reset" class="buttonRest">
                   RESET GAME
                 </button>
+              </div>
+              <div class="gameButtonNew">
+                <button id="reanudarPartidaAnterior" class="buttonRest" type="reset">Reanudar Juego</button>
               </div>
             </div>
           </div>
