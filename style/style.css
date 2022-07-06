@@ -25,7 +25,7 @@ body {
   box-shadow: 1px 1px 5px black;
   justify-content: space-around;
 }
-z .scoreAndPlayer {
+.scoreAndPlayer {
   border: 1px solid black;
 }
 .gamesPlayed {
@@ -193,4 +193,110 @@ z .scoreAndPlayer {
 }
 .imagenTikTakToe {
   max-width: 100px;
+}
+
+@media (max-width:600px){
+  * {
+    margin: 1px;
+    padding: 1px;
+  }
+  .allGameContainer {
+    box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    display: flex;
+    flex-flow: column wrap;
+    background-color: aqua;
+  }
+  .gamesPlayed {
+    box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+    border-radius: 7px;
+  }
+  .puntajeJugadores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: auto;
+    color: rgb(0, 0, 0);
+    font-size: xx-large;
+  }
+  .parentTikTakToe {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 250px;
+    height: 250px;
+  }
+
+.imagenTikTakToe {
+  max-width: 50px;
+}
+h1{
+  font-size: small;
+  max-width: min-content;
+}
+h2{
+  font-size: small;
+  max-width: min-content;
+}
+h3{
+  font-size: small;
+  max-width: min-content;
+}
+h4{
+  font-size: small;
+  max-width: min-content;
+}
+h5{
+  font-size: small;
+  max-width: min-content;
+}
+.secondPlayerScore {
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  border-radius: 7px;
+}
+.scoreAndPlayer {
+  border: 1px solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.secondPlayerScore {
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  border-radius: 7px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.firstPlayerScore {
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  border-radius: 7px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.scoreAndPlayer {
+  border: 1px solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.gamePlayer1 {
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  border-radius: 7px;
+  margin: 5px;
+  padding: 2px;
+}
+.gamePlayer2 {
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  border-radius: 7px;
+  margin: 5px;
+  padding: 2px;
+}
+
 }
