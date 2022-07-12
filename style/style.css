@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-flow: column wrap;
   padding: 20px;
-  background-image: url(/tikTakToe/img/pastel.png);
+  background-image: url(https://images.unsplash.com/photo-1596367407372-96cb88503db6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
   background-repeat: no-repeat;
  background-attachment: fixed;
  background-position: center center;
@@ -356,10 +356,11 @@ box-shadow: 3px 3px 3px rgb(78, 78, 78);
   box-shadow: 5px 5px 5px rgb(47, 0, 0);
 }
 .batmanClass{
-  background-image: url(/tikTakToe/img/batmanFondo.png);
+  background-image: url(https://images8.alphacoders.com/463/thumb-1920-463477.jpg);
   color: rgb(255, 0, 221);
   }
   
 .boxBlanc{
   border: 1px solid white;
+  background-color: rgba(128, 128, 128, 0.324);
 }
