@@ -1,6 +1,7 @@
 * {
   margin: 5px;
   padding: 5px;
+  transition: all 0.5s;
 }
 body {
   background-color: rgb(142, 142, 142);
@@ -11,14 +12,13 @@ body {
   display: flex;
   flex-flow: column wrap;
   padding: 20px;
-  background: rgb(255, 217, 217);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 217, 217, 1) 0%,
-    rgba(255, 252, 203, 1) 48%,
-    rgba(201, 255, 222, 1) 100%
-  );
+  background-image: url(/tikTakToe/img/pastel.png);
+  background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-position: center center;
+ background-size: cover;
 }
+
 .panelControl {
   display: flex;
   flex-flow: row wrap;
@@ -66,16 +66,19 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 7px;
+  font-size: large;
 }
 .buttonRefresh {
-  background-color: rgb(169, 172, 255);
+  background-color: rgba(250, 250, 0, 0.188);
   color: rgb(0, 0, 0);
   border-radius: 7px;
+  font-size: large;
 }
 .buttonRest {
-  background-color: rgb(169, 172, 255);
+  background-color: rgba(236, 0, 236, 0.188);
   color: rgb(0, 0, 0);
   border-radius: 7px;
+  font-size: large;
 }
 .puntajeJugadores {
   display: flex;
@@ -193,9 +196,19 @@ body {
 }
 .imagenTikTakToe {
   max-width: 100px;
+  
+}
+.selectorVs{
+  background-color: rgba(245, 255, 254, 0);
+  display: flex;
+  flex-flow: column wrap;
+  box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
+  justify-content: center;
+  align-items: center;
+  border-radius: 7px;
 }
 
-@media (max-width:600px){
+@media (max-width:759px){
   * {
     margin: 1px;
     padding: 1px;
@@ -227,6 +240,17 @@ body {
     grid-row-gap: 0px;
     width: 250px;
     height: 250px;
+  }
+  .gameContainer {
+    display: flex;
+    border-radius: 7px;
+    flex-flow: column wrap;
+  }
+  .panelControl {
+    display: flex;
+    flex-flow: column wrap;
+    box-shadow: 1px 1px 5px black;
+    justify-content: space-around;
   }
 
 .imagenTikTakToe {
@@ -299,4 +323,43 @@ h5{
   padding: 2px;
 }
 
+}
+
+#containerToggle{
+  margin: 0;
+  padding: 0;
+background-color: beige;
+position: relative;
+width: 50px;
+height: 25px;
+box-shadow: 3px 3px 3px gainsboro;
+margin: 5px;
+border-radius: 25px;
+cursor: pointer;
+}
+.toggle{
+  margin: 0;
+  padding: 0;
+position: absolute;
+width: 25px;
+height: 25px;
+transform: scale(.7);
+background-color: rgb(0, 34, 0);
+border-radius: 25px;
+box-shadow: 3px 3px 3px rgb(78, 78, 78);
+}
+
+#containerToggle.activeToggle .toggle{
+  left: 25px;
+}
+#containerToggle.activeToggle{
+  box-shadow: 5px 5px 5px rgb(47, 0, 0);
+}
+.batmanClass{
+  background-image: url(/tikTakToe/img/batmanFondo.png);
+  color: rgb(255, 0, 221);
+  }
+  
+.boxBlanc{
+  border: 1px solid white;
 }

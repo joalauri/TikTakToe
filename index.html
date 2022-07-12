@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
   </head>
   <body>
     <main>
@@ -28,11 +33,29 @@
                 <h4>jugador2</h4>
               </div>
             </div>
+            <h4>classico/new</h4>
+            <div id="containerToggle">
+              <div class="toggle"></div>
+            </div>
           </div>
+
           <!-- div de jugadores y botones -->
           <div class="gameContainer">
+            <div class="selectorVs">
+              <div class="gameButtonNew">
+                <button id="1Vs1" class="buttonRest" type="reset">
+                  1 vs 1
+                </button>
+              </div>
+              <!-- boton para 1 vs computadora -->
+              <div class="gameButtonNew">
+                <button id="1VsComputadora" class="buttonRest" type="reset">
+                  Vs PC
+                </button>
+              </div>
+            </div>
             <!-- jugador 1 -->
-            <div class="gamePlayer1"  id="firstPlayerBox">
+            <div class="gamePlayer1" id="firstPlayerBox">
               <h4>JUGADOR1</h4>
               <h2 id="tablaPuntaje1" class="puntajeJugadores">0</h2>
             </div>
@@ -43,10 +66,14 @@
             </div>
             <!-- botonera -->
             <div class="gameButtons">
-              <!-- boton de reset game -->
-              <div class="gameButtonReset">
-                <button id="buttonReset" type="reset" class="buttonRefresh">
-                  Limpiar tablero
+              <!-- boton reanudar partida -->
+              <div class="gameButtonNew">
+                <button
+                  id="reanudarPartidaAnterior"
+                  class="buttonRest"
+                  type="reset"
+                >
+                  Reanudar Juego
                 </button>
               </div>
               <!-- boton de nueva partida -->
@@ -55,8 +82,13 @@
                   RESET GAME
                 </button>
               </div>
-              <div class="gameButtonNew">
-                <button id="reanudarPartidaAnterior" class="buttonRest" type="reset">Reanudar Juego</button>
+
+              <!-- boton para 1vs1 -->
+              <!-- boton de reset game -->
+              <div class="gameButtonReset">
+                <button id="buttonReset" type="reset" class="buttonRefresh">
+                  Limpiar tablero
+                </button>
               </div>
             </div>
           </div>
@@ -77,6 +109,11 @@
         </div>
       </div>
     </main>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script src="./javascrip/letConstArray.js"></script>
     <script src="./javascrip/mainJavascrip.js"></script>
   </body>
 </html>

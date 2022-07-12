@@ -1,105 +1,71 @@
-//array de guardado para comprobar posiciones X.
-let verticalRightX = [];
-let horizBottomX = [];
-let verticalLeftX = [];
-let horizMiddleX = [];
-let verticalMiddleX = [];
-let firstDiagonalX = [];
-let secondDiagonalX = [];
-let horizTopX = [];
-const arrayDeJugadasX = [
-  (verticalRightX = []),
-  (horizBottomX = []),
-  (verticalLeftX = []),
-  (horizMiddleX = []),
-  (verticalMiddleX = []),
-  (firstDiagonalX = []),
-  (secondDiagonalX = []),
-  (horizTopX = []),
-];
-//array de guardado para comprobar posiciones O.
-let verticalRightO = [];
-let horizBottomO = [];
-let verticalLeftO = [];
-let horizMiddleO = [];
-let verticalMiddleO = [];
-let firstDiagonalO = [];
-let secondDiagonalO = [];
-let horizTopO = [];
-const arrayDeJugadasO = [
-  (verticalRightO = []),
-  (horizBottomO = []),
-  (verticalLeftO = []),
-  (horizMiddleO = []),
-  (verticalMiddleO = []),
-  (firstDiagonalO = []),
-  (secondDiagonalO = []),
-  (horizTopO = []),
-];
-//divs contenidos:
-let divContenido1 = document.getElementById("divT1");
-let divContenido2 = document.getElementById("divT2");
-let divContenido3 = document.getElementById("divT3");
-let divContenido4 = document.getElementById("divT4");
-let divContenido5 = document.getElementById("divT5");
-let divContenido6 = document.getElementById("divT6");
-let divContenido7 = document.getElementById("divT7");
-let divContenido8 = document.getElementById("divT8");
-let divContenido9 = document.getElementById("divT9");
-let divContenidos = [
-  divContenido1,
-  divContenido2,
-  divContenido3,
-  divContenido4,
-  divContenido5,
-  divContenido6,
-  divContenido7,
-  divContenido8,
-  divContenido9,
-];
-//
-let localStorageJugador1JSON = []
-let localStorageJugador2JSON = []
-let localStorageBackJugador1 = []
-let localStorageBackJugador2 = []
-let punajeJugador1 = [];
-let punajeJugador2 = [];
-let contadorJugadas = 0;
-let jugador1Storage = "";
-let jugador2Storage = "";
+let playerGeneralAlert = function (parametro) {
+  Toastify({
+    text: parametro,
+    duration: 2000,
+    newWindow: true,
+    close: false,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+  }).showToast();
+};
+
 //if para resolver si hay información guradada en local storage, asi no produce error
 //por null.
 if ("jugador1" in localStorage) {
-  jugador1Storage = localStorage.getItem('jugador1')
-  localStorageBackJugador1 = JSON.parse(jugador1Storage)
-  console.log("hay registros de jugador 1");
+  jugador1Storage = localStorage.getItem("jugador1");
+  localStorageBackJugador1 = JSON.parse(jugador1Storage);
 } else {
   console.log("no hay registro de jugador1");
 }
 if ("jugador2" in localStorage) {
-  jugador2Storage = localStorage.getItem('jugador2')
- localStorageBackJugador2 = JSON.parse(jugador2Storage)
-  console.log("hay registros de jugador 2");
+  jugador2Storage = localStorage.getItem("jugador2");
+  localStorageBackJugador2 = JSON.parse(jugador2Storage);
 } else {
   console.log("no hay registro de jugador2");
 }
 //almacenamiento de array para jugadores, que será para recuperar la información de la partida.
 let jugador1StorageArray = localStorageBackJugador1;
 let jugador2StorageArray = localStorageBackJugador2;
+
+let switchOfPlayers = 0;
 //contenedores generales:
 const tikTakToe = document.getElementById("conteinerTikTak");
 const containerScore = document.getElementById("containerScore");
 const buttonReset = document.getElementById("buttonReset");
 const buttonRestartGame = document.getElementById("buttonRestartGame");
-const reanudarPartidaAnterior = document.getElementById(
-  "reanudarPartidaAnterior"
-);
+const reanudarPartidaAnterior = document.getElementById("reanudarPartidaAnterior");
 const jugador1Contador = document.getElementById("tablaPuntaje1");
 const jugador2Contador = document.getElementById("tablaPuntaje2");
 const boxJugador1 = document.getElementById("firstPlayerBox");
 const boxJugador2 = document.getElementById("secondPlayerBox");
 const primerJugadorName = document.getElementById("primerJugadorName");
 const segundoJugadorName = document.getElementById("segundoJugadorName");
+const conmutadorPC = document.getElementById("1VsComputadora");
+const conmutador1Vs1 = document.getElementById("1Vs1");
+const switchGame = document.getElementById("containerToggle")
+
+switchGame.onclick = function(){
+  switchGame.classList.toggle('activeToggle')
+  containerScore.classList.toggle('batmanClass')
+  divContenido1.classList.toggle('boxBlanc')
+  divContenido2.classList.toggle('boxBlanc')
+  divContenido3.classList.toggle('boxBlanc')
+  divContenido4.classList.toggle('boxBlanc')
+  divContenido5.classList.toggle('boxBlanc')
+  divContenido6.classList.toggle('boxBlanc')
+  divContenido7.classList.toggle('boxBlanc')
+  divContenido8.classList.toggle('boxBlanc')
+  divContenido9.classList.toggle('boxBlanc')
+  changeImage()
+  
+}
+function changeImage(){
+classicOrBatman===0?classicOrBatman=1:classicOrBatman=0
+}
 //activar la funcion para invocar el listener.
 agregarXOO();
 //Esta función escucha dónde se está clickeando para poder avisar al programa donde:
@@ -115,8 +81,10 @@ function agregarXOO() {
         agregarImagen(divXO);
         //información que se envia para declarar la partida
         distribuirPuntos(divXO);
+        //resuelve un empate
+      
       } else {
-        alert("casillero invalido");
+        playerGeneralAlert("casillero inválido");
       }
       color();
     });
@@ -124,10 +92,12 @@ function agregarXOO() {
 }
 restartGame();
 function restartGame() {
-  if (localStorageBackJugador1.length == 0 && localStorageBackJugador2.length == 0) {
+  if (
+    localStorageBackJugador1.length == 0 &&
+    localStorageBackJugador2.length == 0
+  ) {
     console.log("no hay registro de partidas guardadas");
   } else if (jugador1Storage.length >= 1 || jugador2Storage.length >= 1) {
-    //lo unico que me queda hacer acá es solucionar el problema de cuando el click se hace y hay 1 sola partida ganada. Ahi carga una pareja de 1 porque toma " " como array.
     reanudarPartidaAnterior.addEventListener(`click`, () => {
       if (jugador1StorageArray.length >= 1) {
         jugador1StorageArray.forEach((element) => {
@@ -146,10 +116,36 @@ function restartGame() {
       sumarAlContador();
     });
   } else {
-    alert("No se puede acceder a una partida anterior");
+    playerGeneralAlert("No se puede acceder a una partida anterior");
   }
 }
+function agregarImagenX(parametroX) {
+  //crea una constante
+  const imagenX = document.createElement(`div`);
+  //proporciona un id
+  imagenX.setAttribute("id", contadorJugadas + "-imagen");
+  //le incorpora una clase
+  imagenX.classList.add("imagenTikTakToe");
+  //escribe la etiqueta HTML
+  classicOrBatman===0 ? imagenX.innerHTML = `<img class="imagenTikTakToe" src="./img/cerrar.png" alt="">` : imagenX.innerHTML = `<img class="imagenTikTakToe" src="./img/batman-logo.png" alt="">`
+  
+  //setea la informacion al contenedor padre
+  parametroX.appendChild(imagenX);
+}
 
+function agregarImagenO(parametroO) {
+  //crea una constante
+  const imagenO = document.createElement(`div`);
+  //proporciona un id
+  imagenO.setAttribute("id", contadorJugadas + "-imagen");
+  //le incorpora una clase
+  imagenO.classList.add("imagenTikTakToe");
+  //escribe la etiqueta HTML
+  classicOrBatman===0 ? imagenO.innerHTML = `<img class="imagenTikTakToe" src="./img/o.png" alt="">` : imagenO.innerHTML = `<img class="imagenTikTakToe" src="./img/joker-card.png" alt="">`
+  
+  //setea la informacion al contenedor padre
+  parametroO.appendChild(imagenO);
+}
 //recibe como parámetro la información proveniente de la funcion invocadora del
 //html, convirtiendo ese mensaje, en una imagen en el html.
 function agregarImagen(divXO) {
@@ -159,37 +155,17 @@ function agregarImagen(divXO) {
     contadorJugadas === 3 ||
     contadorJugadas === 5 ||
     contadorJugadas === 7 ||
-    contadorJugadas === 9
+    contadorJugadas === 9 
   ) {
-    //crea una constante
-    const imagenX = document.createElement(`div`);
-    //proporciona un id
-    imagenX.setAttribute("id", contadorJugadas + "-imagen");
-    //le incorpora una clase
-    imagenX.classList.add("imagenTikTakToe");
-    //escribe la etiqueta HTML
-    imagenX.innerHTML = `<img class="imagenTikTakToe" src="./img/cerrar.png" alt="">`;
-    //setea la informacion al contenedor padre
-    divXO.appendChild(imagenX);
-
-    //contador de jugadas activa crea el O
+    agregarImagenX(divXO);
   } else if (
     contadorJugadas === 2 ||
     contadorJugadas === 4 ||
     contadorJugadas === 6 ||
     contadorJugadas === 8 ||
-    contadorJugadas === 10
+    contadorJugadas === 10 
   ) {
-    //crea una constante
-    const imagenO = document.createElement(`div`);
-    //proporciona un id
-    imagenO.setAttribute("id", contadorJugadas + "-imagen");
-    //le incorpora una clase
-    imagenO.classList.add("imagenTikTakToe");
-    //escribe la etiqueta HTML
-    imagenO.innerHTML = `<img class="imagenTikTakToe" src="./img/o.png" alt="">`;
-    //setea la informacion al contenedor padre
-    divXO.appendChild(imagenO);
+    agregarImagenO(divXO);
   }
 }
 //boton para resetear el tablero
@@ -198,6 +174,9 @@ function resetTableroButton() {
   //escuchamos la llamada del boton
   buttonReset.addEventListener(`click`, () => {
     resetTablero();
+    jugadaGanadoraO = [];
+    jugadaGanadoraX = [];
+    contadorJugadas % 2 == 0 ? (contadorJugadas = 0) : (contadorJugadas = 1);
   });
 }
 //función para resetear todos los valores.
@@ -217,12 +196,7 @@ function resetTablero() {
       element.pop();
     });
   }
-  //poner el contador de jugadas en 0
-  if (contadorJugadas % 2 == 0) {
-    contadorJugadas = 0;
-  } else {
-    contadorJugadas = 1;
-  }
+  //usando operador ternario para simplificar un if:
 }
 resetAllButton();
 function resetAllButton() {
@@ -245,6 +219,8 @@ function resetAll() {
     arrayDeJugadasO.forEach((element) => {
       element.pop();
     });
+    jugadaGanadoraO = [];
+    jugadaGanadoraX = [];
   }
   //se encargará de eliminar uno por  uno los elementos de puntaje.
   while (punajeJugador1.length != 0) {
@@ -268,7 +244,7 @@ function distribuirPuntos(divXO) {
     contadorJugadas === 3 ||
     contadorJugadas === 5 ||
     contadorJugadas === 7 ||
-    contadorJugadas === 9
+    contadorJugadas === 9 
   ) {
     switch (divXO) {
       case divContenido1:
@@ -328,7 +304,7 @@ function distribuirPuntos(divXO) {
     contadorJugadas === 4 ||
     contadorJugadas === 6 ||
     contadorJugadas === 8 ||
-    contadorJugadas === 10
+    contadorJugadas === 10 
   ) {
     switch (divXO) {
       case divContenido1:
@@ -403,31 +379,34 @@ function color() {
 function comprararPosicionesX() {
   arrayDeJugadasX.forEach((element) => {
     if (element.length == 3) {
-      alert("player 1 win");
+      element.forEach((pushear) => {
+        jugadaGanadoraX.push(pushear);
+      });
+      playerGeneralAlert("El jugador 1 gana la partida");
       punajeJugador1.push("1");
-      localStorageJugador1JSON  = JSON.stringify(punajeJugador1)
+      localStorageJugador1JSON = JSON.stringify(punajeJugador1);
       localStorage.setItem("jugador1", localStorageJugador1JSON);
-    //   element.forEach(divID => {
-    //     console.log(divID)
-    //  });
-     sumarAlContador();
+      sumarAlContador();
       resetTablero();
+      mostrarJugadaGanadora();
     }
   });
+  computadoraPlay();
 }
 //Funcion para identificar ganador O
 function comprararPosicionesO() {
   arrayDeJugadasO.forEach((element) => {
     if (element.length == 3) {
-      alert("player 2 win");
+      element.forEach((pushear) => {
+        jugadaGanadoraO.push(pushear);
+      });
+      playerGeneralAlert("El jugador 2 gana la partida");
       punajeJugador2.push("1");
-      localStorageJugador2JSON  = JSON.stringify(punajeJugador2)
+      localStorageJugador2JSON = JSON.stringify(punajeJugador2);
       localStorage.setItem("jugador2", localStorageJugador2JSON);
-    //  element.forEach(divID => {
-    //     console.log(divID)
-    //  });
-     sumarAlContador();
+      sumarAlContador();
       resetTablero();
+      mostrarJugadaGanadora();
     }
   });
 }
@@ -439,3 +418,162 @@ function sumarAlContador() {
   jugador1Contador.innerText = punajeJugador1.length;
   jugador2Contador.innerText = punajeJugador2.length;
 }
+
+let jugadaGanadoraX = [];
+let jugadaGanadoraO = [];
+
+function mostrarJugadaGanadora() {
+  jugadaGanadoraX.forEach((element) => {
+    agregarImagenX(element);
+    contadorJugadas += 10;
+    setTimeout(() => {
+      resetTablero();
+      jugadaGanadoraO = [];
+      jugadaGanadoraX = [];
+      contadorJugadas % 2 == 0 ? (contadorJugadas = 0) : (contadorJugadas = 1);
+  
+    }, 2000);
+  });
+  jugadaGanadoraO.forEach((element) => {
+    agregarImagenO(element);
+    contadorJugadas += 10;
+    setTimeout(() => {
+      resetTablero();
+    jugadaGanadoraO = [];
+    jugadaGanadoraX = [];
+    contadorJugadas % 2 == 0 ? (contadorJugadas = 0) : (contadorJugadas = 1);
+  
+    }, 2000);
+  });
+}
+
+boton1Vs1();
+function boton1Vs1() {
+  conmutador1Vs1.addEventListener(`click`, () => {
+    switchOfPlayers = 0;
+    resetAll();
+  });
+}
+boton1VsPc();
+function boton1VsPc() {
+  conmutadorPC.addEventListener(`click`, () => {
+    switchOfPlayers = 1;
+    resetAll();
+  });
+}
+computadoraPlay();
+function computadoraPlay() {
+  if (
+    (contadorJugadas === 1 && switchOfPlayers === 1) ||
+    (contadorJugadas === 3 && switchOfPlayers === 1) ||
+    (contadorJugadas === 5 && switchOfPlayers === 1) ||
+    (contadorJugadas === 7 && switchOfPlayers === 1) ||
+    (contadorJugadas === 9 && switchOfPlayers === 1)
+  ) {
+    contadorInterno = 0;
+    contadorJugadas++;
+    i = 0;
+    if (contadorJugadas === 1 || contadorJugadas === 2) {
+      if (divContenido5.hasChildNodes() === false) {
+        setTimeout(() => {
+          agregarImagenO(divContenido5);
+          distribuirPuntos(divContenido5);
+          color();
+        }, 550);
+        contadorInterno++;
+      } else {
+        setTimeout(() => {
+          agregarImagenO(divContenido1);
+          distribuirPuntos(divContenido1);
+        }, 550);
+        color();
+        contadorInterno++;
+      }
+    } else if (contadorInterno != 1) {
+      arrayDeJugadasO.forEach((element) => {
+        if (element.length === 2) {
+          arrayDeJugadasXVsPc.forEach((log) => {
+            if (
+              arrayDeJugadasXVsPc.indexOf(log) ===
+                arrayDeJugadasO.indexOf(element) &&
+              i === 0
+            ) {
+              log.forEach((posibilidad) => {
+                if (posibilidad.hasChildNodes() === false && i === 0) {
+                  setTimeout(() => {
+                    agregarImagenO(posibilidad);
+                    distribuirPuntos(posibilidad);
+                  }, 550);
+                 
+                  color();
+                  contadorInterno++;
+                  i++;
+                }
+              });
+            }
+          });
+        }
+      });
+      if (contadorInterno != 1) {
+        arrayDeJugadasX.forEach((inElement) => {
+          if (inElement.length === 2) {
+            arrayDeJugadasXVsPc.forEach((log) => {
+              if (
+                arrayDeJugadasXVsPc.indexOf(log) ===
+                  arrayDeJugadasX.indexOf(inElement) &&
+                i === 0
+              ) {
+                log.forEach((posibilidad) => {
+                  if (posibilidad.hasChildNodes() === false) {
+                    setTimeout(() => {
+                      agregarImagenO(posibilidad);
+                      distribuirPuntos(posibilidad);
+                    }, 550);
+                    
+                    color();
+                    contadorInterno++;
+                    i++;
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+      if (contadorInterno != 1) {
+        arrayDeJugadasO.forEach((element) => {
+          arrayDeJugadasXVsPc.forEach((log) => {
+            if (
+              arrayDeJugadasXVsPc.indexOf(log) ===
+                arrayDeJugadasO.indexOf(element) &&
+              i === 0
+            ) {
+              log.forEach((posibilidad) => {
+                if (posibilidad.hasChildNodes() === false && i === 0) {
+                  setTimeout(() => {
+                    agregarImagenO(posibilidad);
+                    distribuirPuntos(posibilidad);
+                  }, 550);
+                  
+                  color();
+                  contadorInterno++;
+                  i++;
+                }
+              });
+            }
+          });
+        });
+      }
+    }
+    i = 0;
+    contadorInterno = 0;
+  }
+}
+
+// switchGame.addEventListener
+// switchGame.onclick = function(){
+ 
+//   // boxBlanc
+// }
+
+
