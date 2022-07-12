@@ -217,7 +217,6 @@ body {
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
     display: flex;
     flex-flow: column wrap;
-    background-color: aqua;
   }
   .gamesPlayed {
     box-shadow: 3px 3px 5px rgba(1, 1, 1, 0.567);
