@@ -454,6 +454,7 @@ function boton1Vs1() {
   conmutador1Vs1.addEventListener(`click`, () => {
     switchOfPlayers = 0;
     resetAll();
+    playerGeneralAlert("¡1 VS 1!")
   });
 }
 boton1VsPc();
@@ -461,6 +462,7 @@ function boton1VsPc() {
   conmutadorPC.addEventListener(`click`, () => {
     switchOfPlayers = 1;
     resetAll();
+    playerGeneralAlert("¡Jugas contra la Pc!")
   });
 }
 computadoraPlay();
