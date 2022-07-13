@@ -1,3 +1,5 @@
+
+
 //array de guardado para comprobar posiciones X.
 let verticalRightX = [];
 let horizBottomX = [];
@@ -68,8 +70,6 @@ const arrayDeJugadasXVsPc = [
     (fD = [divContenido1, divContenido5, divContenido9]),
     (sD = [divContenido3, divContenido5, divContenido7]),
   ];
-
-  
 let localStorageJugador1JSON = [];
 let localStorageJugador2JSON = [];
 let localStorageBackJugador1 = [];
@@ -82,3 +82,7 @@ let jugador2Storage = "";
 let classicOrBatman = 0
 let prohibidoJugarX = 0
 let prohibidoJugarO = 0
+let desempateContador = 0
+
+let jugadaGanadoraX = [];
+let jugadaGanadoraO = [];

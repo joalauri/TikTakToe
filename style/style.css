@@ -23,7 +23,7 @@ body {
   display: flex;
   flex-flow: row wrap;
   box-shadow: 1px 1px 5px black;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .scoreAndPlayer {
   border: 1px solid black;
@@ -362,4 +362,23 @@ box-shadow: 3px 3px 3px rgb(78, 78, 78);
 .boxBlanc{
   border: 1px solid white;
   background-color: rgba(128, 128, 128, 0.324);
+}
+
+.reloj {
+  display: flex;
+  justify-content: center;
+    align-items: center;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+.reloj2{
+color: rgb(163, 0, 0);
+font-weight: 900;
+text-shadow: 0.2em 0.5em 0.1em rgba(255, 0, 0, 0.51),
+	  -0.3em 0.1em 0.1em rgba(9, 255, 0, 0.517),
+	  0.4em -0.3em 0.1em rgba(21, 0, 255, 0.449);
 }

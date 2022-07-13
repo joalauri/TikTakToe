@@ -47,6 +47,7 @@ const segundoJugadorName = document.getElementById("segundoJugadorName");
 const conmutadorPC = document.getElementById("1VsComputadora");
 const conmutador1Vs1 = document.getElementById("1Vs1");
 const switchGame = document.getElementById("containerToggle")
+const reloj = document.getElementById("relojnumerico")
 
 switchGame.onclick = function(){
   switchGame.classList.toggle('activeToggle')
@@ -61,6 +62,7 @@ switchGame.onclick = function(){
   divContenido8.classList.toggle('boxBlanc')
   divContenido9.classList.toggle('boxBlanc')
   changeImage()
+  reloj.classList.toggle('reloj2')
   
 }
 function changeImage(){
@@ -421,8 +423,6 @@ function sumarAlContador() {
   jugador2Contador.innerText = punajeJugador2.length;
 }
 
-let jugadaGanadoraX = [];
-let jugadaGanadoraO = [];
 
 function mostrarJugadaGanadora() {
   jugadaGanadoraX.forEach((element) => {
@@ -571,14 +571,10 @@ function computadoraPlay() {
     contadorInterno = 0;
   }
 }
-let desempateContador = 0
+
 function desempate(){
   divContenidos.forEach(div => {
-    if (div.hasChildNodes()){
-      desempateContador += 1
-    }
-    
-  
+    div.hasChildNodes()=== true && desempateContador ++
     if (desempateContador===9) {
       playerGeneralAlert("¡Esto fue empate!")
       setTimeout(() => {
@@ -586,7 +582,6 @@ function desempate(){
         jugadaGanadoraO = [];
         jugadaGanadoraX = [];
         contadorJugadas % 2 == 0 ? (contadorJugadas = 0) : (contadorJugadas = 1);
-    
       }, 2000);
     }
   });
