@@ -392,6 +392,7 @@ function comprararPosicionesX() {
     }
   });
   computadoraPlay();
+  desempate()
 }
 //Funcion para identificar ganador O
 function comprararPosicionesO() {
@@ -409,6 +410,7 @@ function comprararPosicionesO() {
       mostrarJugadaGanadora();
     }
   });
+  desempate()
 }
 
 //funcion llamar al contador para que se inicien los contadores
@@ -569,11 +571,25 @@ function computadoraPlay() {
     contadorInterno = 0;
   }
 }
-
-// switchGame.addEventListener
-// switchGame.onclick = function(){
- 
-//   // boxBlanc
-// }
-
+let desempateContador = 0
+function desempate(){
+  divContenidos.forEach(div => {
+    if (div.hasChildNodes()){
+      desempateContador += 1
+    }
+    
+  
+    if (desempateContador===9) {
+      playerGeneralAlert("¡Esto fue empate!")
+      setTimeout(() => {
+        resetTablero();
+        jugadaGanadoraO = [];
+        jugadaGanadoraX = [];
+        contadorJugadas % 2 == 0 ? (contadorJugadas = 0) : (contadorJugadas = 1);
+    
+      }, 2000);
+    }
+  });
+  desempateContador = 0
+}
 
