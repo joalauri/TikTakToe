@@ -1,17 +1,3 @@
-let playerGeneralAlert = function (parametro) {
-  Toastify({
-    text: parametro,
-    duration: 2000,
-    newWindow: true,
-    close: false,
-    gravity: "top", // `top` or `bottom`
-    position: "center", // `left`, `center` or `right`
-    stopOnFocus: true, // Prevents dismissing of toast on hover
-    style: {
-      background: "linear-gradient(to right, #00b09b, #96c93d)",
-    },
-  }).showToast();
-};
 
 //if para resolver si hay información guradada en local storage, asi no produce error
 //por null.
@@ -48,6 +34,7 @@ const conmutadorPC = document.getElementById("1VsComputadora");
 const conmutador1Vs1 = document.getElementById("1Vs1");
 const switchGame = document.getElementById("containerToggle")
 const reloj = document.getElementById("relojnumerico")
+const panelControl = document.getElementById("panelControl")
 
 switchGame.onclick = function(){
   switchGame.classList.toggle('activeToggle')
@@ -63,6 +50,7 @@ switchGame.onclick = function(){
   divContenido9.classList.toggle('boxBlanc')
   changeImage()
   reloj.classList.toggle('reloj2')
+  panelControl.classList.toggle('panelControl2')
   
 }
 function changeImage(){
@@ -589,4 +577,18 @@ function desempate(){
   });
   desempateContador = 0
 }
+let playerGeneralAlert = function (parametro) {
+  Toastify({
+    text: parametro,
+    duration: 2000,
+    newWindow: true,
+    close: false,
+    gravity: "top", // `top` or `bottom`
+    position: "center", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+  }).showToast();
+};
 
