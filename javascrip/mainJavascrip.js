@@ -1,4 +1,3 @@
-
 //if para resolver si hay información guradada en local storage, asi no produce error
 //por null.
 if ("jugador1" in localStorage) {
@@ -23,7 +22,9 @@ const tikTakToe = document.getElementById("conteinerTikTak");
 const containerScore = document.getElementById("containerScore");
 const buttonReset = document.getElementById("buttonReset");
 const buttonRestartGame = document.getElementById("buttonRestartGame");
-const reanudarPartidaAnterior = document.getElementById("reanudarPartidaAnterior");
+const reanudarPartidaAnterior = document.getElementById(
+  "reanudarPartidaAnterior"
+);
 const jugador1Contador = document.getElementById("tablaPuntaje1");
 const jugador2Contador = document.getElementById("tablaPuntaje2");
 const boxJugador1 = document.getElementById("firstPlayerBox");
@@ -32,29 +33,37 @@ const primerJugadorName = document.getElementById("primerJugadorName");
 const segundoJugadorName = document.getElementById("segundoJugadorName");
 const conmutadorPC = document.getElementById("1VsComputadora");
 const conmutador1Vs1 = document.getElementById("1Vs1");
-const switchGame = document.getElementById("containerToggle")
-const reloj = document.getElementById("relojnumerico")
-const panelControl = document.getElementById("panelControl")
+const switchGame = document.getElementById("containerToggle");
+const reloj = document.getElementById("relojnumerico");
+const panelControl = document.getElementById("panelControl");
+const frasePrincipal = document.getElementById("frasePrincipal");
+const authorPrincipal = document.getElementById("authorPrincipal");
 
-switchGame.onclick = function(){
-  switchGame.classList.toggle('activeToggle')
-  containerScore.classList.toggle('batmanClass')
-  divContenido1.classList.toggle('boxBlanc')
-  divContenido2.classList.toggle('boxBlanc')
-  divContenido3.classList.toggle('boxBlanc')
-  divContenido4.classList.toggle('boxBlanc')
-  divContenido5.classList.toggle('boxBlanc')
-  divContenido6.classList.toggle('boxBlanc')
-  divContenido7.classList.toggle('boxBlanc')
-  divContenido8.classList.toggle('boxBlanc')
-  divContenido9.classList.toggle('boxBlanc')
-  changeImage()
-  reloj.classList.toggle('reloj2')
-  panelControl.classList.toggle('panelControl2')
-  
-}
-function changeImage(){
-classicOrBatman===0?classicOrBatman=1:classicOrBatman=0
+
+
+
+
+
+
+
+switchGame.onclick = function () {
+  switchGame.classList.toggle("activeToggle");
+  containerScore.classList.toggle("batmanClass");
+  divContenido1.classList.toggle("boxBlanc");
+  divContenido2.classList.toggle("boxBlanc");
+  divContenido3.classList.toggle("boxBlanc");
+  divContenido4.classList.toggle("boxBlanc");
+  divContenido5.classList.toggle("boxBlanc");
+  divContenido6.classList.toggle("boxBlanc");
+  divContenido7.classList.toggle("boxBlanc");
+  divContenido8.classList.toggle("boxBlanc");
+  divContenido9.classList.toggle("boxBlanc");
+  changeImage();
+  reloj.classList.toggle("reloj2");
+  panelControl.classList.toggle("panelControl2");
+};
+function changeImage() {
+  classicOrBatman === 0 ? (classicOrBatman = 1) : (classicOrBatman = 0);
 }
 //activar la funcion para invocar el listener.
 agregarXOO();
@@ -72,7 +81,6 @@ function agregarXOO() {
         //información que se envia para declarar la partida
         distribuirPuntos(divXO);
         //resuelve un empate
-      
       } else {
         playerGeneralAlert("casillero inválido");
       }
@@ -108,6 +116,7 @@ function restartGame() {
   } else {
     playerGeneralAlert("No se puede acceder a una partida anterior");
   }
+
 }
 function agregarImagenX(parametroX) {
   //crea una constante
@@ -117,8 +126,10 @@ function agregarImagenX(parametroX) {
   //le incorpora una clase
   imagenX.classList.add("imagenTikTakToe");
   //escribe la etiqueta HTML
-  classicOrBatman===0 ? imagenX.innerHTML = `<img class="imagenTikTakToe" src="./img/cerrar.png" alt="">` : imagenX.innerHTML = `<img class="imagenTikTakToe" src="./img/batman-logo.png" alt="">`
-  
+  classicOrBatman === 0
+    ? (imagenX.innerHTML = `<img class="imagenTikTakToe" src="./img/cerrar.png" alt="">`)
+    : (imagenX.innerHTML = `<img class="imagenTikTakToe" src="./img/batman-logo.png" alt="">`);
+
   //setea la informacion al contenedor padre
   parametroX.appendChild(imagenX);
 }
@@ -131,8 +142,10 @@ function agregarImagenO(parametroO) {
   //le incorpora una clase
   imagenO.classList.add("imagenTikTakToe");
   //escribe la etiqueta HTML
-  classicOrBatman===0 ? imagenO.innerHTML = `<img class="imagenTikTakToe" src="./img/o.png" alt="">` : imagenO.innerHTML = `<img class="imagenTikTakToe" src="./img/joker-card.png" alt="">`
-  
+  classicOrBatman === 0
+    ? (imagenO.innerHTML = `<img class="imagenTikTakToe" src="./img/o.png" alt="">`)
+    : (imagenO.innerHTML = `<img class="imagenTikTakToe" src="./img/joker-card.png" alt="">`);
+
   //setea la informacion al contenedor padre
   parametroO.appendChild(imagenO);
 }
@@ -145,7 +158,7 @@ function agregarImagen(divXO) {
     contadorJugadas === 3 ||
     contadorJugadas === 5 ||
     contadorJugadas === 7 ||
-    contadorJugadas === 9 
+    contadorJugadas === 9
   ) {
     agregarImagenX(divXO);
   } else if (
@@ -153,7 +166,7 @@ function agregarImagen(divXO) {
     contadorJugadas === 4 ||
     contadorJugadas === 6 ||
     contadorJugadas === 8 ||
-    contadorJugadas === 10 
+    contadorJugadas === 10
   ) {
     agregarImagenO(divXO);
   }
@@ -234,7 +247,7 @@ function distribuirPuntos(divXO) {
     contadorJugadas === 3 ||
     contadorJugadas === 5 ||
     contadorJugadas === 7 ||
-    contadorJugadas === 9 
+    contadorJugadas === 9
   ) {
     switch (divXO) {
       case divContenido1:
@@ -294,7 +307,7 @@ function distribuirPuntos(divXO) {
     contadorJugadas === 4 ||
     contadorJugadas === 6 ||
     contadorJugadas === 8 ||
-    contadorJugadas === 10 
+    contadorJugadas === 10
   ) {
     switch (divXO) {
       case divContenido1:
@@ -382,7 +395,7 @@ function comprararPosicionesX() {
     }
   });
   computadoraPlay();
-  desempate()
+  desempate();
 }
 //Funcion para identificar ganador O
 function comprararPosicionesO() {
@@ -400,7 +413,7 @@ function comprararPosicionesO() {
       mostrarJugadaGanadora();
     }
   });
-  desempate()
+  desempate();
 }
 
 //funcion llamar al contador para que se inicien los contadores
@@ -411,7 +424,6 @@ function sumarAlContador() {
   jugador2Contador.innerText = punajeJugador2.length;
 }
 
-
 function mostrarJugadaGanadora() {
   jugadaGanadoraX.forEach((element) => {
     agregarImagenX(element);
@@ -421,7 +433,6 @@ function mostrarJugadaGanadora() {
       jugadaGanadoraO = [];
       jugadaGanadoraX = [];
       contadorJugadas % 2 == 0 ? (contadorJugadas = 0) : (contadorJugadas = 1);
-  
     }, 2000);
   });
   jugadaGanadoraO.forEach((element) => {
@@ -429,10 +440,9 @@ function mostrarJugadaGanadora() {
     contadorJugadas += 10;
     setTimeout(() => {
       resetTablero();
-    jugadaGanadoraO = [];
-    jugadaGanadoraX = [];
-    contadorJugadas % 2 == 0 ? (contadorJugadas = 0) : (contadorJugadas = 1);
-  
+      jugadaGanadoraO = [];
+      jugadaGanadoraX = [];
+      contadorJugadas % 2 == 0 ? (contadorJugadas = 0) : (contadorJugadas = 1);
     }, 2000);
   });
 }
@@ -442,7 +452,7 @@ function boton1Vs1() {
   conmutador1Vs1.addEventListener(`click`, () => {
     switchOfPlayers = 0;
     resetAll();
-    playerGeneralAlert("¡1 VS 1!")
+    playerGeneralAlert("¡1 VS 1!");
   });
 }
 boton1VsPc();
@@ -450,7 +460,7 @@ function boton1VsPc() {
   conmutadorPC.addEventListener(`click`, () => {
     switchOfPlayers = 1;
     resetAll();
-    playerGeneralAlert("¡Jugas contra la Pc!")
+    playerGeneralAlert("¡Jugas contra la Pc!");
   });
 }
 computadoraPlay();
@@ -496,7 +506,7 @@ function computadoraPlay() {
                     agregarImagenO(posibilidad);
                     distribuirPuntos(posibilidad);
                   }, 550);
-                 
+
                   color();
                   contadorInterno++;
                   i++;
@@ -521,7 +531,7 @@ function computadoraPlay() {
                       agregarImagenO(posibilidad);
                       distribuirPuntos(posibilidad);
                     }, 550);
-                    
+
                     color();
                     contadorInterno++;
                     i++;
@@ -546,7 +556,7 @@ function computadoraPlay() {
                     agregarImagenO(posibilidad);
                     distribuirPuntos(posibilidad);
                   }, 550);
-                  
+
                   color();
                   contadorInterno++;
                   i++;
@@ -562,20 +572,22 @@ function computadoraPlay() {
   }
 }
 
-function desempate(){
-  divContenidos.forEach(div => {
-    div.hasChildNodes()=== true && desempateContador ++
-    if (desempateContador===9) {
-      playerGeneralAlert("¡Esto fue empate!")
+function desempate() {
+  divContenidos.forEach((div) => {
+    div.hasChildNodes() === true && desempateContador++;
+    if (desempateContador === 9) {
+      playerGeneralAlert("¡Esto fue empate!");
       setTimeout(() => {
         resetTablero();
         jugadaGanadoraO = [];
         jugadaGanadoraX = [];
-        contadorJugadas % 2 == 0 ? (contadorJugadas = 0) : (contadorJugadas = 1);
+        contadorJugadas % 2 == 0
+          ? (contadorJugadas = 0)
+          : (contadorJugadas = 1);
       }, 2000);
     }
   });
-  desempateContador = 0
+  desempateContador = 0;
 }
 let playerGeneralAlert = function (parametro) {
   Toastify({
@@ -586,9 +598,33 @@ let playerGeneralAlert = function (parametro) {
     gravity: "top", // `top` or `bottom`
     position: "center", // `left`, `center` or `right`
     stopOnFocus: true, // Prevents dismissing of toast on hover
-    style: {
-      background: "linear-gradient(to right, #00b09b, #96c93d)",
-    },
   }).showToast();
 };
+
+
+
+
+
+
+// setInterval(,5000)
+llamarAlFetch()
+function llamarAlFetch(){
+  fetch(apiQuote)
+  .then (res =>res.json())
+  .then(data =>{
+  writeQuotes(data.en)
+  writeAuthor(data.author)
+  })
+
+}
+
+function writeQuotes(frase) {
+  // quoteConteiner
+  frasePrincipal.innerText= frase
+}
+function writeAuthor(author){
+  authorPrincipal.innerText =`- ${author}`
+}
+ 
+setInterval( llamarAlFetch ,15000)
 
