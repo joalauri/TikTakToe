@@ -87,6 +87,6 @@ let desempateContador = 0
 let jugadaGanadoraX = [];
 let jugadaGanadoraO = [];
 
-const apiQuote = 'https://programming-quotes-api.herokuapp.com/quotes/random'
+
 
 

@@ -38,6 +38,7 @@ const reloj = document.getElementById("relojnumerico");
 const panelControl = document.getElementById("panelControl");
 const frasePrincipal = document.getElementById("frasePrincipal");
 const authorPrincipal = document.getElementById("authorPrincipal");
+const apiQuote = 'https://programming-quotes-api.herokuapp.com/quotes/random'
 
 
 
