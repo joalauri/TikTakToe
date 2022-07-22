@@ -592,17 +592,15 @@ function desempate() {
 let playerGeneralAlert = function (parametro) {
   Toastify({
     text: parametro,
-    duration: 2000,
+    duration: 20000,
     newWindow: true,
     close: false,
+    className: 'toastifyAlert',
     gravity: "top", // `top` or `bottom`
     position: "center", // `left`, `center` or `right`
-    stopOnFocus: true, // Prevents dismissing of toast on hover
+    stopOnFocus: true // Prevents dismissing of toast on hover
   }).showToast();
 };
-
-
-
 
 
 
