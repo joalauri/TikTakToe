@@ -89,3 +89,4 @@ let jugadaGanadoraO = [];
 
 const apiQuote = 'https://programming-quotes-api.herokuapp.com/quotes/random'
 
+
