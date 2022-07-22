@@ -607,17 +607,17 @@ let playerGeneralAlert = function (parametro) {
 
 
 // setInterval(,5000)
-llamarAlFetch()
-function llamarAlFetch(){
-  fetch(apiQuote)
-  .then (res =>res.json())
-  .then(data =>{
-  writeQuotes(data.en)
-  writeAuthor(data.author)
-  })
+const llamarAlFetch = async () =>{
+  const response = await fetch(apiQuote);
+  const resJson = await response.json();
+  const msg = resJson;
+  
+  writeQuotes(msg.en);
+  writeAuthor(msg.author);
+  
 
 }
-
+llamarAlFetch();
 function writeQuotes(frase) {
   // quoteConteiner
   frasePrincipal.innerText= frase
@@ -626,5 +626,5 @@ function writeAuthor(author){
   authorPrincipal.innerText =`- ${author}`
 }
  
-setInterval( llamarAlFetch ,15000)
+setInterval(llamarAlFetch ,10000)
 
