@@ -593,7 +593,7 @@ function desempate() {
 let playerGeneralAlert = function (parametro) {
   Toastify({
     text: parametro,
-    duration: 20000,
+    duration: 2500,
     newWindow: true,
     close: false,
     className: 'toastifyAlert',

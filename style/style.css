@@ -229,7 +229,7 @@ text-align: center;
   text-shadow: 1px 1px 5px black;
 }
 .toastifyAlert{
-background: black !important;
+background: rgb(119, 182, 90) !important;
 }
 
 @media (max-width: 759px) {
